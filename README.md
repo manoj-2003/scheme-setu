@@ -88,15 +88,21 @@ calls across engines and languages, which is `errgroup` plus a bounded worker li
 rather than an async framework.
 
 ```
-cmd/server        Echo API + graceful shutdown
-cmd/warm          pre-fetches the demo cache, then the app runs offline
-internal/serp     credit-aware SerpApi client: SQLite cache, call ceiling, cache-only mode
-internal/catalog  embedded curated rule set (//go:embed)
-internal/rules    eligibility engine + explanations + ranking
+cmd/server         Echo API + graceful shutdown
+cmd/warm           pre-fetches the demo cache, then the app runs offline
+internal/serp      credit-aware SerpApi client: SQLite cache, call ceiling, cache-only mode
+internal/catalog   embedded curated rule set (//go:embed)
+internal/rules     eligibility engine + explanations + ranking
 internal/discovery query planner (site:, filetype:pdf, per-language) + lead scoring
 internal/freshness news verification, "is it still open"
-internal/fraud    official-domain verification + impostor detection
+internal/fraud     official-domain verification + impostor detection
+web/               Next.js 16 + React 19 + Tailwind v4 wizard and result cards
 ```
+
+The frontend fetches its dropdown enumerations from `GET /api/v1/meta` rather
+than hardcoding them, so the wizard can never drift from the Go types, and
+`web/src/lib/types.ts` mirrors the JSON tags — a rename on either side becomes
+a type error instead of a silently empty card.
 
 ## Credit discipline
 
@@ -123,17 +129,25 @@ The pure-Go `modernc.org/sqlite` driver is deliberate: no CGO, no C toolchain, s
 
 ## Running it
 
+Two processes: the Go API on `:8080` and the Next.js app on `:3000`.
+
 ### Without a SerpApi key (works immediately)
 
 ```bash
 git clone https://github.com/manoj-2003/scheme-setu
 cd scheme-setu
+
+# terminal 1 — API, zero credits, no network
 SERP_MODE=cache SERP_CACHE_PATH=fixtures/serp-cache.sqlite go run ./cmd/server
+
+# terminal 2 — UI
+cd web && npm install && npm run dev
 ```
 
-Eligibility matching, explanations, unlock steps and apply-link verification are fully
-offline and need no key. Discovery, news freshness and impostor detection serve from
-the committed cache and are labelled unverified on a miss.
+Open http://localhost:3000. Eligibility matching, explanations, unlock steps and
+apply-link verification are fully offline and need no key. Discovery, news freshness
+and impostor detection serve from the committed cache and are labelled unverified on
+a miss.
 
 ### With a key (full pipeline)
 
@@ -141,6 +155,8 @@ the committed cache and are labelled unverified on a miss.
 cp .env.example .env     # add SERPAPI_KEY from https://serpapi.com/
 go run ./cmd/server
 ```
+
+If the UI runs on a different host, set `NEXT_PUBLIC_API_BASE` in `web/.env.local`.
 
 ### Warm the demo cache before recording
 

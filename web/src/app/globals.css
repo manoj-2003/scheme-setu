@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  /* One accent, used only for the primary action and eligible verdicts, so
+     that amber (caution) and red (fraud) always read as exceptions. */
+  --color-accent-400: oklch(0.78 0.13 180);
+  --color-accent-500: oklch(0.7 0.13 180);
+  --color-accent-600: oklch(0.6 0.12 180);
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-zinc-950 text-zinc-100 antialiased;
+  /* Indian-language labels in the picker need a font stack that actually has
+     Devanagari, Tamil and Bengali coverage. */
+  font-family:
+    ui-sans-serif, system-ui, "Segoe UI", "Noto Sans", "Nirmala UI",
+    "Noto Sans Devanagari", "Noto Sans Tamil", "Noto Sans Bengali", sans-serif;
+}
+
+/* Tabular figures keep the rupee amounts on the cards vertically aligned. */
+.nums {
+  font-variant-numeric: tabular-nums;
+}
