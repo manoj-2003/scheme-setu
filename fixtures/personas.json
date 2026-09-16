@@ -1,0 +1,193 @@
+[
+  {
+    "label": "Street vendor, Coimbatore, working capital",
+    "profile": {
+      "state": "tamil_nadu",
+      "district": "Coimbatore",
+      "age": 34,
+      "gender": "female",
+      "annualIncomeInr": 180000,
+      "category": "obc",
+      "occupation": "street_vendor",
+      "landHoldingAcres": 0,
+      "purpose": "working_capital",
+      "amountNeededInr": 50000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "hasUdyam": false,
+      "businessVintageMonths": 30,
+      "annualTurnoverInr": 400000,
+      "language": "ta"
+    }
+  },
+  {
+    "label": "Small farmer, Nashik, crop credit",
+    "profile": {
+      "state": "maharashtra",
+      "district": "Nashik",
+      "age": 46,
+      "gender": "male",
+      "annualIncomeInr": 240000,
+      "category": "general",
+      "occupation": "farmer",
+      "landHoldingAcres": 2.5,
+      "purpose": "working_capital",
+      "amountNeededInr": 200000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "businessVintageMonths": 0,
+      "language": "mr"
+    }
+  },
+  {
+    "label": "SC woman, Patna, new manufacturing unit",
+    "profile": {
+      "state": "bihar",
+      "district": "Patna",
+      "age": 29,
+      "gender": "female",
+      "annualIncomeInr": 300000,
+      "category": "sc",
+      "occupation": "unemployed",
+      "landHoldingAcres": 0,
+      "purpose": "new_business",
+      "amountNeededInr": 1500000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "hasUdyam": false,
+      "language": "hi"
+    }
+  },
+  {
+    "label": "Potter / artisan, Jaipur, toolkit and credit",
+    "profile": {
+      "state": "rajasthan",
+      "district": "Jaipur",
+      "age": 41,
+      "gender": "male",
+      "annualIncomeInr": 150000,
+      "category": "obc",
+      "occupation": "artisan",
+      "landHoldingAcres": 0,
+      "purpose": "equipment",
+      "amountNeededInr": 100000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "language": "hi"
+    }
+  },
+  {
+    "label": "Delivery rider, Pune, electric two-wheeler",
+    "profile": {
+      "state": "maharashtra",
+      "district": "Pune",
+      "age": 26,
+      "gender": "male",
+      "annualIncomeInr": 280000,
+      "category": "general",
+      "occupation": "self_employed",
+      "landHoldingAcres": 0,
+      "purpose": "electric_vehicle",
+      "amountNeededInr": 120000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "language": "mr"
+    }
+  },
+  {
+    "label": "Kirana owner, Hyderabad, expansion loan",
+    "profile": {
+      "state": "telangana",
+      "district": "Hyderabad",
+      "age": 38,
+      "gender": "male",
+      "annualIncomeInr": 600000,
+      "category": "general",
+      "occupation": "micro_enterprise",
+      "landHoldingAcres": 0,
+      "purpose": "working_capital",
+      "amountNeededInr": 800000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "hasUdyam": true,
+      "businessVintageMonths": 60,
+      "annualTurnoverInr": 4500000,
+      "language": "te"
+    }
+  },
+  {
+    "label": "Dairy aspirant, Ludhiana, livestock unit",
+    "profile": {
+      "state": "punjab",
+      "district": "Ludhiana",
+      "age": 33,
+      "gender": "male",
+      "annualIncomeInr": 350000,
+      "category": "general",
+      "occupation": "farmer",
+      "landHoldingAcres": 4,
+      "purpose": "livestock",
+      "amountNeededInr": 2500000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "language": "hi"
+    }
+  },
+  {
+    "label": "Student, Kolkata, education loan",
+    "profile": {
+      "state": "west_bengal",
+      "district": "Kolkata",
+      "age": 19,
+      "gender": "female",
+      "annualIncomeInr": 450000,
+      "category": "general",
+      "occupation": "student",
+      "landHoldingAcres": 0,
+      "purpose": "education",
+      "amountNeededInr": 900000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "language": "bn"
+    }
+  },
+  {
+    "label": "Homeowner, Ahmedabad, rooftop solar",
+    "profile": {
+      "state": "gujarat",
+      "district": "Ahmedabad",
+      "age": 52,
+      "gender": "male",
+      "annualIncomeInr": 900000,
+      "category": "general",
+      "occupation": "salaried",
+      "landHoldingAcres": 0,
+      "purpose": "rooftop_solar",
+      "amountNeededInr": 200000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "language": "gu"
+    }
+  },
+  {
+    "label": "Pickle unit, Bengaluru, food processing subsidy",
+    "profile": {
+      "state": "karnataka",
+      "district": "Bengaluru",
+      "age": 44,
+      "gender": "female",
+      "annualIncomeInr": 500000,
+      "category": "obc",
+      "occupation": "micro_enterprise",
+      "landHoldingAcres": 0,
+      "purpose": "food_processing",
+      "amountNeededInr": 1200000,
+      "hasAadhaar": true,
+      "hasBankAccount": true,
+      "hasUdyam": true,
+      "businessVintageMonths": 18,
+      "annualTurnoverInr": 2200000,
+      "language": "kn"
+    }
+  }
+]

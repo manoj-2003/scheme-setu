@@ -1,0 +1,25 @@
+# Secrets
+.env
+.env.local
+
+# Build output
+/bin/
+*.exe
+*.exe~
+
+# Local SerpApi cache (regenerated on demand; the committed demo cache lives
+# in fixtures/ instead)
+/data/
+
+# Node / Next.js
+web/node_modules/
+web/.next/
+web/out/
+web/.env*.local
+web/next-env.d.ts
+
+# Editors + OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

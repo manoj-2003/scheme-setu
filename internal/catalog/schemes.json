@@ -1,0 +1,644 @@
+[
+  {
+    "id": "pm-mudra-shishu",
+    "name": "PM MUDRA Yojana - Shishu",
+    "nameLocal": { "hi": "प्रधानमंत्री मुद्रा योजना - शिशु" },
+    "shortDesc": "Collateral-free micro loan for a new or very small business.",
+    "authority": "Ministry of Finance / MUDRA",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment", "new_business"],
+    "benefit": {
+      "maxAmountInr": 50000,
+      "collateralFree": true,
+      "summary": "Up to Rs 50,000 with no collateral and no processing fee at most public banks."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed", "street_vendor", "artisan", "unemployed", "farmer"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Non-farm income-generating activity, or allied agriculture (not crop loans).",
+        "The lending bank still assesses repayment capacity."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Address proof", "Business plan or quotation", "Bank statements (6 months)", "Passport photo"],
+    "applyUrl": "https://www.jansamarth.in/",
+    "officialDomains": ["jansamarth.in", "mudra.org.in", "udyamimitra.in", "financialservices.gov.in"],
+    "sourceUrls": ["https://www.mudra.org.in/"],
+    "searchKeywords": ["PM MUDRA Yojana", "Mudra Shishu loan", "मुद्रा योजना"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-mudra-kishore",
+    "name": "PM MUDRA Yojana - Kishore",
+    "shortDesc": "Collateral-free loan for a business that is already running.",
+    "authority": "Ministry of Finance / MUDRA",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment"],
+    "benefit": {
+      "minAmountInr": 50001,
+      "maxAmountInr": 500000,
+      "collateralFree": true,
+      "summary": "Rs 50,001 to Rs 5,00,000 with no collateral, for an existing micro enterprise."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed", "artisan", "farmer"],
+      "minBusinessVintageMonths": 6,
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": ["Banks usually expect some business vintage and turnover proof at this ticket size."]
+    },
+    "documents": ["Aadhaar", "PAN", "Udyam certificate (preferred)", "GST returns or turnover proof", "Bank statements (12 months)"],
+    "applyUrl": "https://www.jansamarth.in/",
+    "officialDomains": ["jansamarth.in", "mudra.org.in", "udyamimitra.in"],
+    "sourceUrls": ["https://www.mudra.org.in/"],
+    "searchKeywords": ["Mudra Kishore loan", "PM MUDRA Yojana Kishore"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-mudra-tarun",
+    "name": "PM MUDRA Yojana - Tarun",
+    "shortDesc": "Largest MUDRA tier, for an established micro enterprise.",
+    "authority": "Ministry of Finance / MUDRA",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment", "food_processing"],
+    "benefit": {
+      "minAmountInr": 500001,
+      "maxAmountInr": 1000000,
+      "collateralFree": true,
+      "summary": "Rs 5,00,001 to Rs 10,00,000, collateral-free under the CGFMU guarantee."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed"],
+      "minBusinessVintageMonths": 12,
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "requiresUdyam": true
+    },
+    "documents": ["Aadhaar", "PAN", "Udyam certificate", "GST returns", "ITR (2 years)", "Bank statements (12 months)", "Project report"],
+    "applyUrl": "https://www.jansamarth.in/",
+    "officialDomains": ["jansamarth.in", "mudra.org.in", "udyamimitra.in"],
+    "sourceUrls": ["https://www.mudra.org.in/"],
+    "searchKeywords": ["Mudra Tarun loan"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-mudra-tarun-plus",
+    "name": "PM MUDRA Yojana - Tarun Plus",
+    "shortDesc": "Higher MUDRA tier for borrowers who repaid an earlier Tarun loan.",
+    "authority": "Ministry of Finance / MUDRA",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment", "food_processing"],
+    "benefit": {
+      "minAmountInr": 1000001,
+      "maxAmountInr": 2000000,
+      "collateralFree": true,
+      "summary": "Rs 10,00,001 to Rs 20,00,000 for entrepreneurs with a clean Tarun repayment record."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed"],
+      "minBusinessVintageMonths": 24,
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "requiresUdyam": true,
+      "requiresSchemeIds": ["pm-mudra-tarun"],
+      "notes": ["Requires a previously availed and fully repaid Tarun-category MUDRA loan."]
+    },
+    "documents": ["Aadhaar", "PAN", "Udyam certificate", "Prior loan closure certificate", "GST returns", "ITR (2 years)"],
+    "applyUrl": "https://www.jansamarth.in/",
+    "officialDomains": ["jansamarth.in", "mudra.org.in"],
+    "searchKeywords": ["Mudra Tarun Plus", "Tarun Plus 20 lakh"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-svanidhi-1",
+    "name": "PM SVANidhi - First Tranche",
+    "nameLocal": { "hi": "पीएम स्वनिधि योजना", "ta": "பிஎம் ஸ்வநிதி" },
+    "shortDesc": "Working capital loan for street vendors, no collateral.",
+    "authority": "Ministry of Housing and Urban Affairs",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital"],
+    "benefit": {
+      "maxAmountInr": 10000,
+      "collateralFree": true,
+      "tenureMonths": 12,
+      "summary": "Rs 10,000 working capital, repayable in 12 monthly instalments, with 7% interest subsidy and a cashback for digital payments."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["street_vendor"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Needs a Certificate of Vending or an ID card from the Urban Local Body.",
+        "Vendors surveyed but without a certificate can get a provisional letter of recommendation."
+      ]
+    },
+    "documents": ["Aadhaar", "Certificate of Vending or ULB ID card", "Bank account details", "Mobile number linked to Aadhaar"],
+    "applyUrl": "https://pmsvanidhi.mohua.gov.in/",
+    "officialDomains": ["pmsvanidhi.mohua.gov.in", "mohua.gov.in"],
+    "sourceUrls": ["https://pmsvanidhi.mohua.gov.in/"],
+    "searchKeywords": ["PM SVANidhi", "PM Svanidhi Yojana street vendor loan"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-svanidhi-2",
+    "name": "PM SVANidhi - Second Tranche",
+    "shortDesc": "Second street-vendor loan after the first is repaid on time.",
+    "authority": "Ministry of Housing and Urban Affairs",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital"],
+    "benefit": {
+      "maxAmountInr": 20000,
+      "collateralFree": true,
+      "tenureMonths": 18,
+      "summary": "Rs 20,000 for vendors who repaid the Rs 10,000 tranche on schedule."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["street_vendor"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "requiresSchemeIds": ["pm-svanidhi-1"],
+      "notes": ["Requires timely repayment of the first tranche."]
+    },
+    "documents": ["Aadhaar", "Certificate of Vending", "First loan repayment record"],
+    "applyUrl": "https://pmsvanidhi.mohua.gov.in/",
+    "officialDomains": ["pmsvanidhi.mohua.gov.in", "mohua.gov.in"],
+    "searchKeywords": ["PM SVANidhi second tranche 20000"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-svanidhi-3",
+    "name": "PM SVANidhi - Third Tranche",
+    "shortDesc": "Third street-vendor loan for a clean repayment history.",
+    "authority": "Ministry of Housing and Urban Affairs",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment"],
+    "benefit": {
+      "maxAmountInr": 50000,
+      "collateralFree": true,
+      "tenureMonths": 36,
+      "summary": "Rs 50,000 for vendors who repaid both earlier tranches."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["street_vendor"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "requiresSchemeIds": ["pm-svanidhi-2"],
+      "notes": ["Requires timely repayment of the first and second tranches."]
+    },
+    "documents": ["Aadhaar", "Certificate of Vending", "Repayment record for both prior tranches"],
+    "applyUrl": "https://pmsvanidhi.mohua.gov.in/",
+    "officialDomains": ["pmsvanidhi.mohua.gov.in", "mohua.gov.in"],
+    "searchKeywords": ["PM SVANidhi third tranche 50000"],
+    "needsVerification": true
+  },
+  {
+    "id": "pmegp",
+    "name": "Prime Minister's Employment Generation Programme (PMEGP)",
+    "shortDesc": "Capital subsidy plus bank loan to set up a new micro enterprise.",
+    "authority": "KVIC / Ministry of MSME",
+    "level": "central",
+    "kind": "subsidy",
+    "purposes": ["new_business", "equipment", "food_processing"],
+    "benefit": {
+      "maxAmountInr": 5000000,
+      "subsidyPercentMin": 15,
+      "subsidyPercentMax": 35,
+      "summary": "Government subsidy of 15-35% of project cost (higher for SC/ST/women/rural), with project cost up to Rs 50 lakh for manufacturing and Rs 20 lakh for service units."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["unemployed", "self_employed", "micro_enterprise", "artisan"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Only for NEW units. An existing or already-subsidised unit is not eligible.",
+        "Class VIII pass required for manufacturing projects above Rs 10 lakh and service projects above Rs 5 lakh.",
+        "Beneficiary contributes 5-10% of project cost."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Project report", "Caste certificate (if claiming higher subsidy)", "Education certificate", "Population certificate for rural claim"],
+    "applyUrl": "https://www.kviconline.gov.in/pmegpeportal/",
+    "officialDomains": ["kviconline.gov.in", "kvic.gov.in", "msme.gov.in"],
+    "sourceUrls": ["https://www.kviconline.gov.in/pmegpeportal/"],
+    "searchKeywords": ["PMEGP", "Prime Minister Employment Generation Programme subsidy"],
+    "needsVerification": true
+  },
+  {
+    "id": "stand-up-india",
+    "name": "Stand-Up India",
+    "shortDesc": "Greenfield enterprise loan for SC, ST and women entrepreneurs.",
+    "authority": "Department of Financial Services / SIDBI",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["new_business", "equipment", "food_processing"],
+    "benefit": {
+      "minAmountInr": 1000000,
+      "maxAmountInr": 10000000,
+      "collateralFree": true,
+      "tenureMonths": 84,
+      "summary": "Composite loan of Rs 10 lakh to Rs 1 crore for a first-time (greenfield) enterprise, with a moratorium and credit guarantee cover."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "categories": ["sc", "st"],
+      "occupations": ["unemployed", "self_employed", "micro_enterprise"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Open to SC/ST applicants of any gender and to women of any category.",
+        "Must be a greenfield project - the applicant's first venture in manufacturing, services, trading or allied agriculture.",
+        "For a non-individual entity, 51% shareholding must be held by an SC/ST or woman promoter."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Caste certificate (SC/ST claim)", "Project report", "Proof of first-time entrepreneurship", "Address proof"],
+    "applyUrl": "https://www.standupmitra.in/",
+    "officialDomains": ["standupmitra.in", "sidbi.in", "financialservices.gov.in"],
+    "sourceUrls": ["https://www.standupmitra.in/"],
+    "searchKeywords": ["Stand Up India loan", "Standup Mitra"],
+    "needsVerification": true
+  },
+  {
+    "id": "kisan-credit-card",
+    "name": "Kisan Credit Card (KCC)",
+    "shortDesc": "Short-term crop credit at a heavily subsidised interest rate.",
+    "authority": "Department of Agriculture / NABARD",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["working_capital", "equipment", "livestock"],
+    "benefit": {
+      "maxAmountInr": 300000,
+      "effectiveInterestPercent": 4,
+      "collateralFree": true,
+      "summary": "Revolving credit up to Rs 3 lakh at 7% with a further 3% rebate for prompt repayment, so an effective 4%. Collateral-free up to Rs 2 lakh."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["farmer"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Covers owner-cultivators, tenant farmers, oral lessees and sharecroppers.",
+        "Also extended to animal husbandry and fisheries activities."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Land records or tenancy proof", "Crop plan", "Passport photo"],
+    "applyUrl": "https://www.jansamarth.in/",
+    "officialDomains": ["jansamarth.in", "agriwelfare.gov.in", "nabard.org", "pmkisan.gov.in"],
+    "sourceUrls": ["https://agriwelfare.gov.in/"],
+    "searchKeywords": ["Kisan Credit Card", "KCC loan", "किसान क्रेडिट कार्ड"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-kisan",
+    "name": "PM-KISAN",
+    "shortDesc": "Direct income support for landholding farmer families.",
+    "authority": "Ministry of Agriculture and Farmers Welfare",
+    "level": "central",
+    "kind": "income_support",
+    "purposes": ["income_support"],
+    "benefit": {
+      "maxAmountInr": 6000,
+      "summary": "Rs 6,000 a year paid in three instalments of Rs 2,000 directly into the bank account."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["farmer"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Landholding farmer families. Institutional landholders are excluded.",
+        "Income-tax payers, serving or retired government employees above a pay threshold, and professionals are excluded.",
+        "e-KYC and land-record seeding must be complete or instalments are withheld."
+      ]
+    },
+    "documents": ["Aadhaar", "Land records", "Bank account details", "Mobile number"],
+    "applyUrl": "https://pmkisan.gov.in/",
+    "officialDomains": ["pmkisan.gov.in", "agriwelfare.gov.in"],
+    "sourceUrls": ["https://pmkisan.gov.in/"],
+    "searchKeywords": ["PM Kisan", "PM-KISAN instalment", "पीएम किसान"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-vishwakarma",
+    "name": "PM Vishwakarma",
+    "shortDesc": "Toolkit grant, skill training and cheap credit for traditional artisans.",
+    "authority": "Ministry of MSME",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["equipment", "working_capital", "new_business"],
+    "benefit": {
+      "maxAmountInr": 300000,
+      "effectiveInterestPercent": 5,
+      "collateralFree": true,
+      "summary": "Collateral-free credit of Rs 1 lakh, then Rs 2 lakh on repayment, at 5% interest, plus a toolkit incentive and a skill-training stipend."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["artisan", "self_employed", "micro_enterprise"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Applicant must work in one of the 18 notified trades (carpenter, blacksmith, potter, cobbler, tailor, barber and others).",
+        "Only one member per family. Government employees and their families are excluded.",
+        "Registration is through a Common Service Centre with ULB or Gram Panchayat verification."
+      ]
+    },
+    "documents": ["Aadhaar", "Bank account details", "Proof of trade", "Mobile linked to Aadhaar", "Ration card"],
+    "applyUrl": "https://pmvishwakarma.gov.in/",
+    "officialDomains": ["pmvishwakarma.gov.in", "msme.gov.in"],
+    "sourceUrls": ["https://pmvishwakarma.gov.in/"],
+    "searchKeywords": ["PM Vishwakarma Yojana", "PM Vishwakarma artisan loan"],
+    "needsVerification": true
+  },
+  {
+    "id": "pmfme",
+    "name": "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
+    "shortDesc": "Credit-linked capital subsidy for small food processing units.",
+    "authority": "Ministry of Food Processing Industries",
+    "level": "central",
+    "kind": "subsidy",
+    "purposes": ["food_processing", "equipment", "new_business"],
+    "benefit": {
+      "maxAmountInr": 1000000,
+      "subsidyPercentMax": 35,
+      "summary": "35% credit-linked capital subsidy on eligible project cost, capped at Rs 10 lakh per unit, plus branding and marketing support."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed", "farmer", "unemployed"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "For micro food processing enterprises, including single-product units under the One District One Product approach.",
+        "Beneficiary contributes at least 10% of project cost; the rest is a bank loan."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Detailed project report", "Udyam certificate", "Land or rent documents", "FSSAI registration"],
+    "applyUrl": "https://pmfme.mofpi.gov.in/",
+    "officialDomains": ["pmfme.mofpi.gov.in", "mofpi.gov.in"],
+    "sourceUrls": ["https://pmfme.mofpi.gov.in/"],
+    "searchKeywords": ["PMFME scheme", "PM FME micro food processing subsidy"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-surya-ghar",
+    "name": "PM Surya Ghar: Muft Bijli Yojana",
+    "shortDesc": "Central subsidy for a rooftop solar system on a home.",
+    "authority": "Ministry of New and Renewable Energy",
+    "level": "central",
+    "kind": "subsidy",
+    "purposes": ["rooftop_solar"],
+    "benefit": {
+      "maxAmountInr": 78000,
+      "summary": "Subsidy up to Rs 78,000 for a 3 kW rooftop solar system, with concessional collateral-free loans available for residential installations."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Applicant must own a residential house with a suitable roof and a valid electricity connection.",
+        "Installation must be done by a DISCOM-registered vendor for the subsidy to be released."
+      ]
+    },
+    "documents": ["Aadhaar", "Electricity bill", "Proof of roof ownership", "Bank account details"],
+    "applyUrl": "https://pmsuryaghar.gov.in/",
+    "officialDomains": ["pmsuryaghar.gov.in", "mnre.gov.in"],
+    "sourceUrls": ["https://pmsuryaghar.gov.in/"],
+    "searchKeywords": ["PM Surya Ghar", "Muft Bijli Yojana rooftop solar subsidy"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-e-drive",
+    "name": "PM E-DRIVE",
+    "shortDesc": "Purchase incentive on electric two- and three-wheelers.",
+    "authority": "Ministry of Heavy Industries",
+    "level": "central",
+    "kind": "subsidy",
+    "purposes": ["electric_vehicle"],
+    "benefit": {
+      "summary": "Demand incentive applied at the dealer on eligible electric two-wheelers, three-wheelers, ambulances, trucks and buses. The amount depends on battery capacity and vehicle category."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "requiresAadhaar": true,
+      "notes": [
+        "The incentive is claimed by the dealer against an Aadhaar-authenticated e-voucher, not reimbursed to the buyer later.",
+        "Only models and OEMs certified under the scheme qualify.",
+        "Scheme has a fixed outlay and a defined window - verify the incentive is still live before relying on it."
+      ]
+    },
+    "documents": ["Aadhaar", "Driving licence", "Address proof", "Dealer e-voucher"],
+    "applyUrl": "https://pmedrive.heavyindustries.gov.in/",
+    "officialDomains": ["pmedrive.heavyindustries.gov.in", "heavyindustries.gov.in"],
+    "sourceUrls": ["https://heavyindustries.gov.in/"],
+    "searchKeywords": ["PM E-DRIVE scheme", "PM E DRIVE electric vehicle subsidy"],
+    "needsVerification": true
+  },
+  {
+    "id": "cgtmse",
+    "name": "Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE)",
+    "shortDesc": "Government guarantee that lets a bank lend to you without collateral.",
+    "authority": "Ministry of MSME / SIDBI",
+    "level": "central",
+    "kind": "credit_guarantee",
+    "purposes": ["working_capital", "equipment", "new_business", "food_processing"],
+    "benefit": {
+      "maxAmountInr": 50000000,
+      "collateralFree": true,
+      "summary": "Guarantee cover on credit facilities to micro and small enterprises, letting banks lend without collateral or third-party guarantee."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed", "artisan"],
+      "requiresUdyam": true,
+      "notes": [
+        "You do not apply directly. The lending bank applies for cover on your loan, so ask your bank to route it under CGTMSE.",
+        "Retail trade and educational or training institutions have historically been outside the cover - confirm current eligibility."
+      ]
+    },
+    "documents": ["Udyam certificate", "Loan application to a member lending institution"],
+    "applyUrl": "https://www.cgtmse.in/",
+    "officialDomains": ["cgtmse.in", "msme.gov.in", "sidbi.in"],
+    "sourceUrls": ["https://www.cgtmse.in/"],
+    "searchKeywords": ["CGTMSE", "credit guarantee scheme micro small enterprises"],
+    "needsVerification": true
+  },
+  {
+    "id": "national-livestock-mission-ede",
+    "name": "National Livestock Mission - Entrepreneurship Development",
+    "shortDesc": "Capital subsidy to start a poultry, goat, sheep, piggery or fodder unit.",
+    "authority": "Department of Animal Husbandry and Dairying",
+    "level": "central",
+    "kind": "subsidy",
+    "purposes": ["livestock", "new_business", "equipment"],
+    "benefit": {
+      "maxAmountInr": 5000000,
+      "subsidyPercentMax": 50,
+      "summary": "50% capital subsidy on the project, released in two instalments, with limits that vary by activity (poultry, small ruminant, piggery, fodder)."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["farmer", "self_employed", "micro_enterprise", "unemployed"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Individuals, FPOs, SHGs, JLGs, FCOs and Section 8 companies can apply.",
+        "Requires land ownership or a registered lease and a bank appraisal of the project."
+      ]
+    },
+    "documents": ["Aadhaar", "PAN", "Detailed project report", "Land documents or lease deed", "Training or experience certificate", "Bank appraisal letter"],
+    "applyUrl": "https://nlm.udyamimitra.in/",
+    "officialDomains": ["nlm.udyamimitra.in", "dahd.nic.in", "udyamimitra.in"],
+    "sourceUrls": ["https://dahd.nic.in/"],
+    "searchKeywords": ["National Livestock Mission subsidy", "NLM entrepreneurship poultry goat subsidy"],
+    "needsVerification": true
+  },
+  {
+    "id": "pm-vidyalaxmi",
+    "name": "PM Vidyalaxmi",
+    "shortDesc": "Collateral-free education loan with interest subvention.",
+    "authority": "Ministry of Education",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["education"],
+    "benefit": {
+      "maxAmountInr": 1000000,
+      "collateralFree": true,
+      "summary": "Collateral-free, guarantor-free education loan for admission to a listed quality higher-education institution, with a 3% interest subvention for families under the income threshold."
+    },
+    "eligibility": {
+      "minAge": 16,
+      "maxAnnualIncomeInr": 800000,
+      "occupations": ["student"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "notes": [
+        "Admission must be to an institution on the scheme's quality list.",
+        "The full interest subvention benefit is tied to the family income slab - check the current slab before applying."
+      ]
+    },
+    "documents": ["Aadhaar", "Admission letter", "Income certificate", "Marksheets", "Fee structure from institution"],
+    "applyUrl": "https://www.vidyalakshmi.co.in/",
+    "officialDomains": ["vidyalakshmi.co.in", "education.gov.in"],
+    "sourceUrls": ["https://www.education.gov.in/"],
+    "searchKeywords": ["PM Vidyalaxmi", "PM Vidyalakshmi education loan scheme"],
+    "needsVerification": true
+  },
+  {
+    "id": "nhfdc-divyangjan-swavalamban",
+    "name": "NHFDC Divyangjan Swavalamban Scheme",
+    "shortDesc": "Concessional self-employment loan for persons with disabilities.",
+    "authority": "National Handicapped Finance and Development Corporation",
+    "level": "central",
+    "kind": "loan",
+    "purposes": ["new_business", "working_capital", "equipment"],
+    "benefit": {
+      "maxAmountInr": 5000000,
+      "summary": "Concessional-interest loan for self-employment, with lower rates for smaller ticket sizes and additional concessions for women applicants."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["self_employed", "unemployed", "micro_enterprise", "artisan"],
+      "requiresAadhaar": true,
+      "requiresBankAccount": true,
+      "requiresDisability": true,
+      "notes": ["Requires a disability certificate showing 40% or more benchmark disability."]
+    },
+    "documents": ["Aadhaar", "Disability certificate (40%+)", "Project report", "Income certificate", "Bank account details"],
+    "applyUrl": "https://nhfdc.nic.in/",
+    "officialDomains": ["nhfdc.nic.in", "depwd.gov.in"],
+    "sourceUrls": ["https://nhfdc.nic.in/"],
+    "searchKeywords": ["NHFDC loan scheme", "Divyangjan Swavalamban disability loan"],
+    "needsVerification": true
+  },
+  {
+    "id": "maharashtra-ev-policy-incentive",
+    "name": "Maharashtra EV Policy - Purchase Incentive",
+    "shortDesc": "State top-up incentive on electric vehicles registered in Maharashtra.",
+    "authority": "Government of Maharashtra",
+    "level": "state",
+    "states": ["maharashtra"],
+    "kind": "subsidy",
+    "purposes": ["electric_vehicle"],
+    "benefit": {
+      "summary": "State purchase incentive stacked on top of the central EV incentive, with amounts varying by vehicle category and battery capacity."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "requiresAadhaar": true,
+      "notes": [
+        "Vehicle must be registered in Maharashtra.",
+        "State EV policies are revised and paused often - the freshness check on this card matters more than the stated amount."
+      ]
+    },
+    "documents": ["Aadhaar", "Maharashtra address proof", "Vehicle invoice", "RC book"],
+    "applyUrl": "https://transport.maharashtra.gov.in/",
+    "officialDomains": ["transport.maharashtra.gov.in", "maharashtra.gov.in"],
+    "searchKeywords": ["Maharashtra EV policy subsidy", "Maharashtra electric vehicle incentive"],
+    "needsVerification": true
+  },
+  {
+    "id": "gujarat-ev-subsidy",
+    "name": "Gujarat Electric Vehicle Subsidy",
+    "shortDesc": "State subsidy on electric two- and three-wheelers in Gujarat.",
+    "authority": "Government of Gujarat",
+    "level": "state",
+    "states": ["gujarat"],
+    "kind": "subsidy",
+    "purposes": ["electric_vehicle"],
+    "benefit": {
+      "summary": "Per-kWh state subsidy on eligible electric two- and three-wheelers, capped per vehicle category."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "requiresAadhaar": true,
+      "notes": ["Vehicle must be purchased and registered in Gujarat.", "Verify the current policy window before relying on the amount."]
+    },
+    "documents": ["Aadhaar", "Gujarat domicile or address proof", "Vehicle invoice", "RC book"],
+    "applyUrl": "https://gujaratindia.gov.in/",
+    "officialDomains": ["gujaratindia.gov.in", "gujarat.gov.in"],
+    "searchKeywords": ["Gujarat EV subsidy", "Gujarat electric vehicle policy incentive"],
+    "needsVerification": true
+  },
+  {
+    "id": "tn-msme-capital-subsidy",
+    "name": "Tamil Nadu MSME Capital Subsidy",
+    "shortDesc": "State capital subsidy on plant and machinery for MSMEs in Tamil Nadu.",
+    "authority": "MSME Department, Government of Tamil Nadu",
+    "level": "state",
+    "states": ["tamil_nadu"],
+    "kind": "subsidy",
+    "purposes": ["equipment", "new_business", "food_processing"],
+    "benefit": {
+      "subsidyPercentMax": 25,
+      "summary": "Capital subsidy on eligible plant and machinery, with higher rates for units set up by women, SC/ST, transgender and differently-abled entrepreneurs and for backward districts."
+    },
+    "eligibility": {
+      "minAge": 18,
+      "occupations": ["micro_enterprise", "self_employed"],
+      "requiresUdyam": true,
+      "notes": ["Unit must be located in Tamil Nadu and registered on Udyam.", "Subsidy rates and district classifications are revised periodically."]
+    },
+    "documents": ["Aadhaar", "Udyam certificate", "Machinery invoices", "Bank loan sanction letter", "Factory licence or local body approval"],
+    "applyUrl": "https://www.msmeonline.tn.gov.in/",
+    "officialDomains": ["msmeonline.tn.gov.in", "tn.gov.in"],
+    "searchKeywords": ["Tamil Nadu MSME capital subsidy", "TN MSME subsidy scheme"],
+    "needsVerification": true
+  }
+]
