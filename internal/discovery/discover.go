@@ -62,7 +62,7 @@ func (o *Options) applyDefaults() {
 func Run(ctx context.Context, client *serp.Client, p models.Profile, opts Options) Result {
 	opts.applyDefaults()
 
-	plan := Plan(p, languagesFor(p, opts.Languages), opts.MaxQueries)
+	plan := Plan(p, LanguagesFor(p, opts.Languages), opts.MaxQueries)
 
 	outcomes := make([]queryOutcome, len(plan))
 
@@ -277,7 +277,10 @@ func IsGovDomain(host string) bool {
 		strings.HasSuffix(host, ".nic.in")
 }
 
-// languagesFor decides which hl= values a run searches in.
+// LanguagesFor decides which hl= values a run searches in.
+//
+// Exported because cmd/warm -dry-run has to resolve languages the same way a
+// real run does, or its credit estimate is wrong.
 //
 // The applicant's own language leads, because that is the one that surfaces a
 // state circular. English follows as the fallback, since most portals publish
@@ -289,7 +292,7 @@ func IsGovDomain(host string) bool {
 // out a high-value query (the filetype:pdf circular search is the first to
 // go). The configured list still applies to profiles that name no language,
 // which is how the demo personas and cmd/warm get their breadth.
-func languagesFor(p models.Profile, configured []string) []string {
+func LanguagesFor(p models.Profile, configured []string) []string {
 	lang := p.Lang()
 	if lang == "" || strings.EqualFold(lang, "en") {
 		return configured

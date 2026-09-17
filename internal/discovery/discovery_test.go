@@ -98,14 +98,14 @@ func TestPlanUsesApplicantLanguage(t *testing.T) {
 func TestLanguagesForReplacesConfiguredList(t *testing.T) {
 	configured := []string{"en", "hi"}
 
-	tamil := languagesFor(models.Profile{Language: "ta"}, configured)
+	tamil := LanguagesFor(models.Profile{Language: "ta"}, configured)
 	if want := []string{"ta", "en"}; !slices.Equal(tamil, want) {
 		t.Errorf("Tamil applicant: got %v, want %v", tamil, want)
 	}
 
 	// No language named: the configured breadth still applies, which is what
 	// cmd/warm and the demo personas rely on.
-	none := languagesFor(models.Profile{}, configured)
+	none := LanguagesFor(models.Profile{}, configured)
 	if !slices.Equal(none, configured) {
 		t.Errorf("unspecified language: got %v, want %v", none, configured)
 	}
@@ -122,7 +122,7 @@ func TestPlanKeepsGuidelinesPDFForNonEnglishApplicant(t *testing.T) {
 		Language:   "ta",
 	}
 
-	plan := Plan(p, languagesFor(p, []string{"en", "hi"}), 6)
+	plan := Plan(p, LanguagesFor(p, []string{"en", "hi"}), 6)
 
 	var labels []string
 	for _, q := range plan {
