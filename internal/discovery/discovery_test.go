@@ -1,6 +1,7 @@
 package discovery
 
 import (
+	"slices"
 	"strings"
 	"testing"
 
@@ -88,6 +89,51 @@ func TestPlanUsesApplicantLanguage(t *testing.T) {
 		}
 	}
 	t.Fatal("plan contains no Bengali query for a Bengali-speaking applicant")
+}
+
+// The configured list is a default for profiles that name no language, not a
+// set to be unioned with the applicant's choice. Unioning it meant a Tamil
+// applicant also searched Hindi, and since Plan truncates to MaxQueries those
+// wasted slots pushed the guidelines-PDF query out of the plan entirely.
+func TestLanguagesForReplacesConfiguredList(t *testing.T) {
+	configured := []string{"en", "hi"}
+
+	tamil := LanguagesFor(models.Profile{Language: "ta"}, configured)
+	if want := []string{"ta", "en"}; !slices.Equal(tamil, want) {
+		t.Errorf("Tamil applicant: got %v, want %v", tamil, want)
+	}
+
+	// No language named: the configured breadth still applies, which is what
+	// cmd/warm and the demo personas rely on.
+	none := LanguagesFor(models.Profile{}, configured)
+	if !slices.Equal(none, configured) {
+		t.Errorf("unspecified language: got %v, want %v", none, configured)
+	}
+}
+
+// Regression: a non-English applicant must not lose the filetype:pdf query,
+// which is how state schemes published only as a circular are reached.
+func TestPlanKeepsGuidelinesPDFForNonEnglishApplicant(t *testing.T) {
+	p := models.Profile{
+		State:      "tamil_nadu",
+		Category:   models.CategoryOBC,
+		Occupation: models.OccupationStreetVendor,
+		Purpose:    models.PurposeWorkingCapital,
+		Language:   "ta",
+	}
+
+	plan := Plan(p, LanguagesFor(p, []string{"en", "hi"}), 6)
+
+	var labels []string
+	for _, q := range plan {
+		labels = append(labels, q.Label)
+		if q.Language == "hi" {
+			t.Errorf("Tamil applicant got a Hindi query: %s", q.Params.Query())
+		}
+	}
+	if !slices.Contains(labels, "guidelines_pdf") {
+		t.Errorf("guidelines_pdf truncated out of the plan; labels were %v", labels)
+	}
 }
 
 func TestLooksLikeScheme(t *testing.T) {

@@ -129,7 +129,9 @@ func printPlan(personas []persona, languages []string) error {
 	total := 0
 	for _, p := range personas {
 		fmt.Printf("\n%s\n", p.Label)
-		for _, q := range discovery.Plan(p.Profile, languages, 6) {
+		// Resolve languages exactly as Run does, or the credit estimate below
+		// is not the cost of the run it is estimating.
+		for _, q := range discovery.Plan(p.Profile, discovery.LanguagesFor(p.Profile, languages), 6) {
 			fmt.Printf("  [%-20s %s] %s\n", q.Label, q.Language, q.Params.Query())
 			total++
 		}

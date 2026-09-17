@@ -11,6 +11,12 @@
 # in fixtures/ instead)
 /data/
 
+# SQLite write-ahead log and shared-memory files. Transient: they appear next
+# to fixtures/serp-cache.sqlite during a warm run and are checkpointed into it
+# on close, so only the .sqlite itself belongs in the repo.
+*.sqlite-wal
+*.sqlite-shm
+
 # Node / Next.js
 web/node_modules/
 web/.next/
