@@ -97,6 +97,10 @@ type Options struct {
 	CacheTTL    time.Duration
 	MaxCredits  int
 	HTTPTimeout time.Duration
+
+	// Transport overrides the HTTP transport. Only tests set this; production
+	// callers leave it nil and get the default.
+	Transport http.RoundTripper
 }
 
 func (o *Options) applyDefaults() {
@@ -113,7 +117,11 @@ func (o *Options) applyDefaults() {
 		o.MaxCredits = 40
 	}
 	if o.HTTPTimeout == 0 {
-		o.HTTPTimeout = 20 * time.Second
+		// Non-English queries (hl=ta/hi/bn) are consistently the slowest and
+		// were timing out at 20s, which silently dropped exactly the
+		// local-language results discovery exists to find. The handler's own
+		// budget is 45s, so there is room for this.
+		o.HTTPTimeout = 35 * time.Second
 	}
 	if o.APIKey == "" {
 		// Without a key there is nothing to spend, so fall back to serving
@@ -147,7 +155,7 @@ func New(opts Options) (*Client, error) {
 	return &Client{
 		opts:  opts,
 		cache: cache,
-		http:  &http.Client{Timeout: opts.HTTPTimeout},
+		http:  &http.Client{Timeout: opts.HTTPTimeout, Transport: opts.Transport},
 	}, nil
 }
 
@@ -296,7 +304,13 @@ func (c *Client) fetch(ctx context.Context, p Params) ([]byte, error) {
 
 	res, err := c.http.Do(req)
 	if err != nil {
-		return nil, fmt.Errorf("serpapi request: %w", err)
+		// *url.Error stringifies to the full request URL, api_key included, and
+		// these errors travel all the way out to the match response's warnings
+		// list. Keep the reason, drop the URL.
+		if uerr, ok := errors.AsType[*url.Error](err); ok {
+			return nil, fmt.Errorf("serpapi request (%s): %w", p.Engine(), uerr.Err)
+		}
+		return nil, fmt.Errorf("serpapi request (%s): %w", p.Engine(), err)
 	}
 	defer res.Body.Close()
 

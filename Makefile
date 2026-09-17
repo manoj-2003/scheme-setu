@@ -25,12 +25,16 @@ plan:
 warm:
 	go run ./cmd/warm -cache $(FIXTURE_CACHE)
 
+# Scoped to the Go tree on purpose: ./... walks into web/node_modules, which
+# ships a stray Go package (flatted), and listing it in test output is noise.
+PKGS := ./cmd/... ./internal/...
+
 test:
-	go test ./...
+	go test $(PKGS)
 
 lint:
-	go vet ./...
-	@gofmt -l . | tee /dev/stderr | (! read)
+	go vet $(PKGS)
+	@gofmt -l cmd internal | tee /dev/stderr | (! read)
 
 build:
 	go build -o $(BIN)/server ./cmd/server

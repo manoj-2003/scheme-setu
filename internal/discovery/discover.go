@@ -62,14 +62,7 @@ func (o *Options) applyDefaults() {
 func Run(ctx context.Context, client *serp.Client, p models.Profile, opts Options) Result {
 	opts.applyDefaults()
 
-	langs := opts.Languages
-	// Always include the applicant's own language, since that is the one most
-	// likely to surface a state circular.
-	if l := p.Lang(); l != "" && !contains(langs, l) {
-		langs = append([]string{l}, langs...)
-	}
-
-	plan := Plan(p, langs, opts.MaxQueries)
+	plan := Plan(p, languagesFor(p, opts.Languages), opts.MaxQueries)
 
 	outcomes := make([]queryOutcome, len(plan))
 
@@ -284,11 +277,22 @@ func IsGovDomain(host string) bool {
 		strings.HasSuffix(host, ".nic.in")
 }
 
-func contains(list []string, want string) bool {
-	for _, s := range list {
-		if strings.EqualFold(s, want) {
-			return true
-		}
+// languagesFor decides which hl= values a run searches in.
+//
+// The applicant's own language leads, because that is the one that surfaces a
+// state circular. English follows as the fallback, since most portals publish
+// at least a stub in English and it is what the catalog keywords match on.
+//
+// Crucially the configured list is *replaced*, not extended: searching Hindi
+// for a Tamil applicant spends credits on pages Tamil Nadu never published,
+// and because Plan truncates to MaxQueries, every irrelevant language pushes
+// out a high-value query (the filetype:pdf circular search is the first to
+// go). The configured list still applies to profiles that name no language,
+// which is how the demo personas and cmd/warm get their breadth.
+func languagesFor(p models.Profile, configured []string) []string {
+	lang := p.Lang()
+	if lang == "" || strings.EqualFold(lang, "en") {
+		return configured
 	}
-	return false
+	return []string{lang, "en"}
 }
