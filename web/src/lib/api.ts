@@ -34,11 +34,23 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 
 export const fetchMeta = () => request<Meta>("/api/v1/meta");
 
-export const matchProfile = (profile: Profile) =>
-  request<MatchResponse>("/api/v1/match", {
+export async function matchProfile(profile: Profile): Promise<MatchResponse> {
+  const res = await request<MatchResponse>("/api/v1/match", {
     method: "POST",
     body: JSON.stringify(profile),
   });
+
+  // The API is fixed to always send arrays, but a nil slice in Go marshals to
+  // null and that crashed the page once already. Normalise here too so the UI
+  // cannot be broken by an older or differently-deployed backend.
+  return {
+    ...res,
+    eligible: res.eligible ?? [],
+    nearMisses: res.nearMisses ?? [],
+    discovered: res.discovered ?? [],
+    warnings: res.warnings ?? [],
+  };
+}
 
 /**
  * Formats an amount using the Indian grouping system, because "₹10,00,000"
