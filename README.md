@@ -133,20 +133,38 @@ Two processes: the Go API on `:8080` and the Next.js app on `:3000`.
 
 ### Without a SerpApi key (works immediately)
 
+With no `SERPAPI_KEY` in the environment the server serves the committed demo
+cache and never touches the network, so the bare command is the right one:
+
 ```bash
 git clone https://github.com/manoj-2003/scheme-setu
 cd scheme-setu
 
 # terminal 1 — API, zero credits, no network
-SERP_MODE=cache SERP_CACHE_PATH=fixtures/serp-cache.sqlite go run ./cmd/server
+go run ./cmd/server
 
 # terminal 2 — UI
 cd web && npm install && npm run dev
 ```
 
-Open http://localhost:3000. Eligibility matching, explanations, unlock steps and
-apply-link verification are fully offline and need no key. Discovery, news freshness
-and impostor detection serve from the committed cache and are labelled unverified on
+On Windows PowerShell, same thing:
+
+```powershell
+git clone https://github.com/manoj-2003/scheme-setu
+cd scheme-setu
+
+# terminal 1 — pins cache-only mode explicitly
+.\run-offline.ps1
+
+# terminal 2
+cd web; npm install; npm run dev
+```
+
+Open http://localhost:3000. The startup line prints the cache it opened and
+`GET /api/v1/usage` will report zero live calls, so you can confirm nothing was
+spent. Eligibility matching, explanations, unlock steps and apply-link
+verification are fully offline and need no key. Discovery, news freshness and
+impostor detection serve from the committed cache and are labelled unverified on
 a miss.
 
 ### With a key (full pipeline)
@@ -155,6 +173,10 @@ a miss.
 cp .env.example .env     # add SERPAPI_KEY from https://serpapi.com/
 go run ./cmd/server
 ```
+
+With a key present the cache defaults to `data/serp-cache.sqlite` instead, so a
+live run accumulates its own responses and never writes into the committed
+fixture.
 
 If the UI runs on a different host, set `NEXT_PUBLIC_API_BASE` in `web/.env.local`.
 
@@ -170,8 +192,12 @@ Then commit the cache file and run the server with `SERP_MODE=cache`.
 ### Tests
 
 ```bash
-go test ./...
+go test ./cmd/... ./internal/...
 ```
+
+Scoped to the Go tree deliberately: `./...` walks into `web/node_modules`, which
+ships a stray Go package, so it only works before `npm install`. `make test` and
+`make lint` run the same set.
 
 ## API
 
