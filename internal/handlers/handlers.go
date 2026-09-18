@@ -127,18 +127,31 @@ func (h *Handler) Match(c echo.Context) error {
 
 	return c.JSON(http.StatusOK, models.MatchResponse{
 		Profile:    profile,
-		Eligible:   eligible,
-		NearMisses: nearMisses,
-		Discovered: found.Leads,
+		Eligible:   jsonArray(eligible),
+		NearMisses: jsonArray(nearMisses),
+		Discovered: jsonArray(found.Leads),
 		Usage: models.SearchUsage{
 			Calls:      calls,
 			CacheHits:  hits,
 			LiveCalls:  live,
 			CreditsMax: maxCredits,
 		},
-		Warnings:    warnings,
+		Warnings:    jsonArray(warnings),
 		GeneratedAt: time.Now(),
 	})
+}
+
+// jsonArray guarantees a JSON array rather than null.
+//
+// Go marshals a nil slice as `null`, so a profile with no near misses used to
+// send {"nearMisses": null} and every client doing `.nearMisses.length` threw.
+// Empty and absent are the same thing to a caller here, so the API never emits
+// null for a list field.
+func jsonArray[T any](s []T) []T {
+	if s == nil {
+		return []T{}
+	}
+	return s
 }
 
 // checkTrust runs the fraud shield over the top matches.
